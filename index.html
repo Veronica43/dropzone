@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/dropzone/dist/dropzone.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Drop Zone</title>
+  </head>
+  <body>
+    
+    <div class="form-container">
+      <form action="" >
+        <div class="dropzone">
+          <div class="dz-default dz-message">
+            <button class="dz-button" type="button">
+             <h1>Arrastra tus archivos aquí</h1>
+            </button>
+          </div>
+        </div>
+        <div class="button">
+          <button type="button" id="send">Enviar</button>
+        </div>
+      </form>
+    
+    
+        <form>
+          <h1>Bienvenido a DDrop</h1>
+          <h3>Para subir tus archivos de forma simple a drive, <br/> puedes hacer LogIn a través de Google.</h3>
+          
+      <hr/>
+      
+
+        <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+
+         
+        
+         
+        </div>
+       
+      </form>
+    
+    
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="node_modules/dropzone/dist/dropzone-min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
